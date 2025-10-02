@@ -1,0 +1,16 @@
+fastapi==0.116.2
+uvicorn[standard]==0.30.6
+psycopg[binary]==3.2.3
+alembic==1.13.3
+python-dotenv==1.0.1
+httpx==0.28.1
+tenacity==9.1.2
+pydantic==2.11.9
+# Scheduler
+APScheduler==3.10.4
+
+
+# LLM providers (optional; install as needed)
+openai==1.51.2
+anthropic==0.40.0
+

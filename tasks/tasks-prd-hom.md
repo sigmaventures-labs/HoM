@@ -24,6 +24,10 @@
 - `backend/tests/ai/test_orchestrator.py` - Unit tests for AI orchestration and context (pytest).
 - `backend/tests/actions/test_generator.py` - Unit tests for action generation (pytest).
  - `tasks/paycomPackage_CursorGuide.md` - Guide for installing and using `paycom_async`.
+ - `README.md` - Monorepo scaffold overview and getting started pointers.
+ - `.github/workflows/backend.yml` - Backend CI (pytest).
+ - `.github/workflows/frontend.yml` - Frontend CI (jest).
+ - `.gitignore` - Ignore rules for Python, Node, macOS, IDE artifacts.
 
 ### Notes
 
@@ -63,35 +67,44 @@
 ## Tasks
 
 - [ ] 1.0 Foundation and data integration setup
-  - [ ] 1.1 Initialize project repo/CI (no MaX dependency)
-  - [ ] 1.2 Create Python env (3.11+) and install local `paycom_async` per guide
-  - [ ] 1.3 Set up PostgreSQL and create initial schema for employees, time, events, metrics_history
-  - [ ] 1.4 Implement `paycomClient.py` wrapper around `paycom_async` with fetch functions
-  - [ ] 1.5 Implement daily sync scheduler (APScheduler) with retries and rate limiting
-  - [ ] 1.6 Define metric data models and seed sample data for dev
-  - [ ] 1.7 Configure environment variables per guide: `PAYCOM_SID`, `PAYCOM_TOKEN`, `PAYCOM_BASE_URL`
+  - [x] 1.1 Initialize project repo/CI (no MaX dependency)
+  - [x] 1.2 Create Python env (3.11+) and install local `paycom_async` per guide
+  - [x] 1.3 Set up PostgreSQL and create initial schema for employees, time, events, metrics_history
+  - [x] 1.4 Implement `paycomClient.py` wrapper around `paycom_async` with fetch functions
+  - [x] 1.5 Implement daily sync scheduler (APScheduler) with retries and rate limiting
+  - [x] 1.6 Define metric data models and seed sample data for dev
+  - [x] 1.7 Configure environment variables per guide: `PAYCOM_SID`, `PAYCOM_TOKEN`, `PAYCOM_BASE_URL`
   - [ ] 1.8 Add optional local mock support (uvicorn) behind a feature flag
-  - [ ] 1.9 Expose OpenAPI spec via FastAPI (contract-first, low-impact guardrail)
+  - [x] 1.9 Expose OpenAPI spec via FastAPI (contract-first, low-impact guardrail)
 
 - [ ] 2.0 Dashboard adaptation for HR metrics with "Ask AI" triggers
-  - [ ] 2.1 Define 4 MVP metrics: headcount, absenteeism rate, turnover rate, overtime
-  - [ ] 2.2 Implement Python metrics engine (`backend/app/metrics/engine.py`) and pytest unit tests
-  - [ ] 2.3 Build/modify `MetricCard` to show value, target, trend arrow, sparkline, status
-  - [ ] 2.4 Add "Ask AI" button that passes metric context and opens chat
-  - [ ] 2.5 Create FastAPI metrics endpoints for current values and last-12-weeks trends
-  - [ ] 2.6 Integrate sample data and verify visual accuracy of cards
-  - [ ] 2.7 Add component tests for `MetricCard` and sparkline rendering
+  - [x] 2.1 Define 4 MVP metrics: headcount, absenteeism rate, turnover rate, overtime
+  - [x] 2.2 Implement Python metrics engine (`backend/app/metrics/engine.py`) and pytest unit tests
+  - [x] 2.3 Build/modify `MetricCard` to show value, target, trend arrow, sparkline, status
+- [x] 2.4 Add "Ask AI" button that passes metric context and opens chat
+  - [x] 2.5 Create FastAPI metrics endpoints for current values and last-12-weeks trends
+  - [x] 2.6 Integrate sample data and verify visual accuracy of cards
+  - [x] 2.7 Add component tests for `MetricCard` and sparkline rendering
+  - [x] 2.8 Add safe resampling rules and cadence validation for trend API (weighted averages for rates; counts sum; reject unsupported upsampling)
 
 - [ ] 3.0 Conversational module and AI orchestration service
-  - [ ] 3.1 Implement `ChatInterface` with message history, streaming, and loading states
-  - [ ] 3.2 Pre-populate first message from "Ask AI" with metric context ("Tell me about [Metric]")
-  - [ ] 3.3 Build Python AI orchestrator with modes: explanation, prediction, prescription
-  - [ ] 3.4 Implement context injection: fetch metric data and trends for prompts
-  - [ ] 3.5 Add ephemeral UI spec: support chart/table/annotation render instructions
-  - [ ] 3.6 Create `EphemeralChart` renderer to display AI-proposed visuals inline
+  - [x] 3.1 Implement `ChatInterface` with message history, streaming, and loading states
+  - [x] 3.2 Pre-populate first message from "Ask AI" with metric context ("Tell me about [Metric]")
+  - [x] 3.3 Build Python AI orchestrator with modes: explanation, prediction, prescription
+  - [x] 3.4 Implement context injection: fetch metric data and trends for prompts
+  - [x] 3.5 Add ephemeral UI spec: support chart/table/annotation render instructions
+  - [x] 3.6 Create `EphemeralChart` renderer to display AI-proposed visuals inline
   - [ ] 3.7 Implement `ContextManager` to persist conversation state per metric/session
   - [ ] 3.8 Externalize prompt templates to `backend/app/ai/prompt_templates/` (guardrail)
   - [ ] 3.9 Write pytest unit tests for orchestrator, context injection, and chat flows
+  - [ ] 3.10 Orchestrator context enrichment (post-3.9)
+    - [ ] 3.10.1 Add `time_range` parsing and cadence options (day/week/month)
+    - [ ] 3.10.2 Compute trend descriptors (slope, WoW/MoM, volatility, target delta)
+    - [ ] 3.10.3 Include numerator/denominator and partial-period coverage for rate metrics
+    - [ ] 3.10.4 Support scope filters (department/location) in context assembly
+  - [ ] 3.11 Ephemeral UI polish (post-3.9)
+  - [ ] 3.11.1 Add yFormat-aware formatting (percent vs number) and malformed spec guards (deferred from 3.6d)
+  - [ ] 3.11.2 Expand EphemeralChart edge-case tests (empty/invalid data, unknown kinds/annotations, yFormat cases)
 
 - [ ] 4.0 Action generation and management module
   - [ ] 4.1 Implement Python `ActionGenerator` producing 3–5 actions with impact, difficulty, timeline, first step
@@ -103,10 +116,26 @@
 
 - [ ] 5.0 Integration, end-to-end testing, performance, and deployment preparation
   - [ ] 5.1 Complete Paycom sync E2E using `paycom_async` with CSV/mock fallback and reconciliation
+- NOTE: Ingestion order matters — run employee sync before time-entry syncs. Time entries are matched by `external_id` to employees; running time entries first may lead to partial or failed ingestion.
   - [ ] 5.2 Create E2E test covering dashboard → chat → actions flow with seeded data
   - [ ] 5.3 Add simple caching/indices for metrics and chat context queries; perf budget checks
   - [ ] 5.4 Implement error handling, audit logs, and basic analytics
   - [ ] 5.5 Prepare deployment: Dockerfile, envs, migrations, CI pipeline
   - [ ] 5.6 Smoke test in staging and fix critical issues
+
+
+- [ ] 6.0 Observability
+  - [ ] 6.1 Define SLOs/SLIs: availability, p95 latency, sync freshness
+  - [ ] 6.2 Add structured JSON logging with correlation IDs across API, jobs, Paycom client
+  - [ ] 6.3 Expose Prometheus metrics on backend (/metrics): HTTP, DB, APScheduler, Paycom
+  - [ ] 6.4 Instrument frontend Web Vitals and error monitoring (Sentry) with performance tracing
+  - [ ] 6.5 Create Grafana dashboards for APIs, scheduler jobs, DB health, AI flows
+  - [ ] 6.6 Configure alerts: 5xx/error rate, p95 latency, job failures, sync lag
+  - [ ] 6.7 Implement OpenTelemetry tracing (API, DB, Paycom, jobs) to OTLP collector
+  - [ ] 6.8 Add Postgres exporter and slow query/index hit dashboards; tune hotspots
+  - [ ] 6.9 Extend AI orchestration metrics: latency, timeouts, token usage, cost anomalies
+  - [ ] 6.10 Write incident runbooks, map ownership, and set error budgets per SLOs
+  - [ ] 6.11 Enforce PII-safe telemetry: redaction, sampling, and retention policies
+  - [ ] 6.12 Add synthetic probes and E2E checks for dashboard → chat → actions
 
 

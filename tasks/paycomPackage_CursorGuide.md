@@ -24,7 +24,11 @@ poetry add \--path /Users/client/Documents/Dev/MaX/libs/paycom\_async
 export PAYCOM\_SID="your\_sid"  
 export PAYCOM\_TOKEN="your\_token"  
 export PAYCOM\_BASE\_URL="https://your-replit-subdomain.replit.app"  
-\`\`\`
+\`\`\`  
+
+\#\#\#\# Ingestion order (important)
+\- Sync employees first, then time entries.
+\- Reason: time entries link to employees via \`external\_id\`; running time entries first can cause partial/failed ingestion if employees aren’t present.
 
 \#\#\# 3\) Use in code  
 \`\`\`python  

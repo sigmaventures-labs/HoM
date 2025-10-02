@@ -1,46 +1,63 @@
-# macOS
-.DS_Store
-
 # Python
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
 *.pyd
-.Python
-env/
-venv/
-.venv/
-pip-wheel-metadata/
-*.egg-info/
-dist/
-build/
+*.pytest_cache/
 .pytest_cache/
+.venv/
+venv/
+.env
+.env.*
 .mypy_cache/
 .coverage
-coverage.xml
 htmlcov/
+.coverage.*
+.pytype/
+.dmypy.json
+.pyre/
 
-# Node / JS
+# Node / Frontend
 node_modules/
+frontend/node_modules/
+vendor/**/node_modules/
+yarn.lock
+pnpm-lock.yaml
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-store/
-dist/
-build/
-.parcel-cache/
-.turbo/
-.next/
+.vite/
 coverage/
+.vscode/
+.DS_Store
 
-# IDE
+# Build artifacts
+/dist/
+frontend/dist/
+vendor/**/dist/
+*.tar.gz
+*.zip
+
+# IDE/editor
 .idea/
 .vscode/
 *.swp
 *.swo
 
-# Env files
-.env
-.env.*
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
 
+# Local data and secrets
+*.sqlite
+*.db
+backend/ENV_VARS.md
+.env.local
 
+# Misc
+*.cache
+/tmp/
+**/.cache/
+**/.parcel-cache/
