@@ -1,29 +1,37 @@
 ## Relevant Files
 
-- `backend/app/integration/paycom_client.py` - Python wrapper using local `paycom_async` package.
+- `backend/app/main.py` - FastAPI app factory and router registration.
+- `backend/app/config/env.py` - Environment loading and DB URL helpers.
+- `backend/app/integration/paycom_client.py` - Paycom client with mock HTTP fallback support.
 - `backend/app/scheduler/sync_scheduler.py` - Daily sync scheduler (APScheduler) and jobs.
 - `backend/src/db/migrations/2025_09_14_init.sql` - Initial schema for HR metrics + history.
+- `backend/src/db/migrations/2025_09_20_enhanced_schema.sql` - Enhanced schema updates.
+- `backend/src/db/run_migrations.py` - Lightweight migration runner.
 - `backend/app/metrics/engine.py` - Metric calculations (headcount, absenteeism, turnover, overtime).
 - `backend/app/api/routes/metrics.py` - FastAPI endpoints to fetch metrics and trends.
+- `backend/app/api/routes/chat.py` - Chat SSE endpoint for AI orchestrator.
 - `backend/app/ai/orchestrator.py` - AI orchestration: modes, context assembly, routing.
 - `backend/app/ai/prompt_templates/` - Prompt templates for explanation, prediction, prescription.
 - `backend/app/ai/ephemeral_ui.py` - Ephemeral visualization spec generation.
-- `backend/app/actions/generator.py` - Prescriptive action generation pipeline.
-- `backend/app/api/routes/actions.py` - CRUD and listing routes for actions and status updates.
+- `scripts/e2e_full_run.py` - Orchestrates migrations → API → ingestion → probes → chat.
+- `scripts/e2e_metrics_probe.py` - Captures responses from metrics endpoints.
+- `scripts/e2e_seeded_chat.py` - Runs seeded chat SSE for four metrics and saves transcripts.
+- `frontend/vite.config.ts` - Vite config with API proxy to backend.
+- `frontend/postcss.config.cjs` - PostCSS config (Tailwind v4 bridge + autoprefixer).
+- `frontend/tailwind.config.ts` - Tailwind config.
+- `frontend/src/index.css` - Tailwind layers, CSS variables, and design tokens.
 - `frontend/src/components/dashboard/MetricCard.tsx` - Metric card UI with trend, target, sparkline, status, Ask AI.
 - `frontend/src/components/dashboard/Sparkline.tsx` - Mini sparkline visualization.
 - `frontend/src/components/chat/ChatInterface.tsx` - Conversational UI with streaming responses.
 - `frontend/src/components/chat/EphemeralChart.tsx` - Renderer for AI-generated ephemeral charts.
 - `frontend/src/state/ContextManager.ts` - Conversation state and context management.
-- `frontend/src/utils/ResponseFormatter.ts` - Formatting AI responses into UI-friendly structures.
-- `frontend/src/views/ActionBoard.tsx` - Action board view with status and priority matrix.
-- `frontend/src/lib/playbooks/index.md` - Playbook library entries (starter content).
 - `frontend/src/components/dashboard/MetricCard.test.tsx` - Unit tests for metric card.
-- `frontend/src/components/chat/ChatInterface.test.tsx` - Unit tests for chat interface.
+- `frontend/src/components/chat/EphemeralChart.test.tsx` - Unit tests for ephemeral chart.
 - `backend/tests/metrics/test_engine.py` - Unit tests for metric calculations (pytest).
 - `backend/tests/ai/test_orchestrator.py` - Unit tests for AI orchestration and context (pytest).
-- `backend/tests/actions/test_generator.py` - Unit tests for action generation (pytest).
+- `backend/tests/ai/test_chat_stream.py` - Unit tests for chat streaming endpoint (pytest).
  - `tasks/paycomPackage_CursorGuide.md` - Guide for installing and using `paycom_async`.
+ - `tasks/e2e-synthetic.md` - Synthetic E2E guide and commands.
  - `README.md` - Monorepo scaffold overview and getting started pointers.
  - `.github/workflows/backend.yml` - Backend CI (pytest).
  - `.github/workflows/frontend.yml` - Frontend CI (jest).
@@ -94,9 +102,9 @@
   - [x] 3.4 Implement context injection: fetch metric data and trends for prompts
   - [x] 3.5 Add ephemeral UI spec: support chart/table/annotation render instructions
   - [x] 3.6 Create `EphemeralChart` renderer to display AI-proposed visuals inline
-  - [ ] 3.7 Implement `ContextManager` to persist conversation state per metric/session
-  - [ ] 3.8 Externalize prompt templates to `backend/app/ai/prompt_templates/` (guardrail)
-  - [ ] 3.9 Write pytest unit tests for orchestrator, context injection, and chat flows
+  - [x] 3.7 Implement `ContextManager` to persist conversation state per metric/session
+  - [x] 3.8 Externalize prompt templates to `backend/app/ai/prompt_templates/` (guardrail)
+  - [x] 3.9 Write pytest unit tests for orchestrator, context injection, and chat flows
   - [ ] 3.10 Orchestrator context enrichment (post-3.9)
     - [ ] 3.10.1 Add `time_range` parsing and cadence options (day/week/month)
     - [ ] 3.10.2 Compute trend descriptors (slope, WoW/MoM, volatility, target delta)
