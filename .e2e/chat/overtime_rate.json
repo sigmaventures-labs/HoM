@@ -1,0 +1,104 @@
+{
+  "metric": "overtime_rate",
+  "prompt": "Explain the overtime trend and operational hotspots to watch.",
+  "events": [
+    {
+      "delta": "Time range: Context (JSON): {\"metric\": {\"key\": \"overtime_rate\", \"name\": \"Overtime Rate\", \"description\": \"Overtime minutes as a share of worked minutes over a period.\", \"orientation\": \"lower\", \"unit\": \"ratio\", \"display_unit\": \"%\", \"period\": \"period\", \"formula_markdown\": \"OT Rate = Overtime Minutes / Worked Minutes\", \"numerator\": \"Overtime minutes from OT earning codes (OT1, OT2, site-specific); if not coded, derive via rules against worked minutes\", \"denominator\": \"Worked minutes from punches minus unpaid meal periods; exclude minutes from paid absence earnings\", \"edge_rules\": [\"If Worked = 0 →  [Simulated response — replace with provider]. "
+    },
+    {
+      "ui_spec": {
+        "version": 1,
+        "mode": "explanation",
+        "components": [
+          {
+            "type": "chart",
+            "kind": "line",
+            "title": "Overtime Rate Trend",
+            "data": [
+              {
+                "x": "2025-07-13",
+                "y": null
+              },
+              {
+                "x": "2025-07-20",
+                "y": null
+              },
+              {
+                "x": "2025-07-27",
+                "y": null
+              },
+              {
+                "x": "2025-08-03",
+                "y": null
+              },
+              {
+                "x": "2025-08-10",
+                "y": null
+              },
+              {
+                "x": "2025-08-17",
+                "y": null
+              },
+              {
+                "x": "2025-08-24",
+                "y": null
+              },
+              {
+                "x": "2025-08-31",
+                "y": 0.042735042735042736
+              },
+              {
+                "x": "2025-09-07",
+                "y": 0.039603960396039604
+              },
+              {
+                "x": "2025-09-14",
+                "y": 0.043478260869565216
+              },
+              {
+                "x": "2025-09-21",
+                "y": 0.033707865168539325
+              },
+              {
+                "x": "2025-09-28",
+                "y": 0.03740648379052369
+              }
+            ],
+            "yFormat": "%",
+            "annotations": [
+              {
+                "type": "horizontal_line",
+                "y": 0.1,
+                "label": "Target"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Summary",
+            "rows": [
+              {
+                "label": "Current",
+                "value": "4.1%"
+              },
+              {
+                "label": "Change",
+                "value": "11.0%"
+              },
+              {
+                "label": "Status",
+                "value": "GREEN"
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "metric_key": "overtime_rate"
+        }
+      }
+    }
+  ],
+  "timing_ms": {
+    "wall": 10
+  }
+}

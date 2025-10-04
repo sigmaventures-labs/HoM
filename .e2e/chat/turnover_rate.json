@@ -1,0 +1,104 @@
+{
+  "metric": "turnover_rate",
+  "prompt": "Explain turnover changes and likely drivers in the last months.",
+  "events": [
+    {
+      "delta": "Time range: Context (JSON): {\"metric\": {\"key\": \"turnover_rate\", \"name\": \"Turnover Rate\", \"description\": \"Monthly separations relative to average daily headcount for the month.\", \"orientation\": \"lower\", \"unit\": \"ratio\", \"display_unit\": \"%\", \"period\": \"monthly\", \"formula_markdown\": \"Turnover_month = (# employees with termination_date in month) / (Average Daily Headcount in month)\", \"numerator\": \"Count employees whose termination_date falls within the month (exclude internal transfers)\", \"denominator\": \"Mean of daily headcount snapshots in that month\", \"edge_rules\": [\"Validate with roll-forward:   [Simulated response — replace with provider]. "
+    },
+    {
+      "ui_spec": {
+        "version": 1,
+        "mode": "explanation",
+        "components": [
+          {
+            "type": "chart",
+            "kind": "line",
+            "title": "Turnover Rate Trend",
+            "data": [
+              {
+                "x": "2024-10-31",
+                "y": 0.0
+              },
+              {
+                "x": "2024-11-30",
+                "y": 0.0
+              },
+              {
+                "x": "2024-12-31",
+                "y": 0.0
+              },
+              {
+                "x": "2025-01-31",
+                "y": 0.0
+              },
+              {
+                "x": "2025-02-28",
+                "y": 0.0
+              },
+              {
+                "x": "2025-03-31",
+                "y": 0.0
+              },
+              {
+                "x": "2025-04-30",
+                "y": 0.0
+              },
+              {
+                "x": "2025-05-31",
+                "y": 0.0
+              },
+              {
+                "x": "2025-06-30",
+                "y": 0.0
+              },
+              {
+                "x": "2025-07-31",
+                "y": 0.0
+              },
+              {
+                "x": "2025-08-31",
+                "y": 0.15816326530612246
+              },
+              {
+                "x": "2025-09-30",
+                "y": 0.0
+              }
+            ],
+            "yFormat": "%",
+            "annotations": [
+              {
+                "type": "horizontal_line",
+                "y": 0.12,
+                "label": "Target"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Summary",
+            "rows": [
+              {
+                "label": "Current",
+                "value": "0.0%"
+              },
+              {
+                "label": "Change",
+                "value": "-100.0%"
+              },
+              {
+                "label": "Status",
+                "value": "GREEN"
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "metric_key": "turnover_rate"
+        }
+      }
+    }
+  ],
+  "timing_ms": {
+    "wall": 13
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "metric": "headcount",
+  "prompt": "Explain the recent headcount trend and whether we are on track.",
+  "events": [
+    {
+      "delta": "Time range: Context (JSON): {\"metric\": {\"key\": \"headcount\", \"name\": \"Headcount\", \"description\": \"Count employees where hire_date ≤ D and (termination_date is null or termination_date > D).\", \"orientation\": \"higher\", \"unit\": \"count\", \"display_unit\": null, \"period\": \"as_of_daily\", \"formula_markdown\": \"HC(D) = count( employees with hire_date ≤ D and (termination_date is null or termination_date > D) )\", \"numerator\": null, \"denominator\": null, \"edge_rules\": [\"Use department for location rollups only.\", \"Map Direct vs Indirect via Labor Allocation master, not department.\"], \"source_notes\": [\"Employ  [Simulated response — replace with provider]. "
+    },
+    {
+      "ui_spec": {
+        "version": 1,
+        "mode": "explanation",
+        "components": [
+          {
+            "type": "chart",
+            "kind": "line",
+            "title": "Headcount Trend",
+            "data": [
+              {
+                "x": "2025-07-13",
+                "y": 4.0
+              },
+              {
+                "x": "2025-07-20",
+                "y": 4.0
+              },
+              {
+                "x": "2025-07-27",
+                "y": 4.0
+              },
+              {
+                "x": "2025-08-03",
+                "y": 14.0
+              },
+              {
+                "x": "2025-08-10",
+                "y": 14.0
+              },
+              {
+                "x": "2025-08-17",
+                "y": 12.0
+              },
+              {
+                "x": "2025-08-24",
+                "y": 12.0
+              },
+              {
+                "x": "2025-08-31",
+                "y": 12.0
+              },
+              {
+                "x": "2025-09-07",
+                "y": 12.0
+              },
+              {
+                "x": "2025-09-14",
+                "y": 12.0
+              },
+              {
+                "x": "2025-09-21",
+                "y": 12.0
+              },
+              {
+                "x": "2025-09-28",
+                "y": 12.0
+              }
+            ],
+            "yFormat": "number",
+            "annotations": [
+              {
+                "type": "horizontal_line",
+                "y": 15.0,
+                "label": "Target"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Summary",
+            "rows": [
+              {
+                "label": "Current",
+                "value": "12.00"
+              },
+              {
+                "label": "Change",
+                "value": "0.00"
+              },
+              {
+                "label": "Status",
+                "value": "YELLOW"
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "metric_key": "headcount"
+        }
+      }
+    }
+  ],
+  "timing_ms": {
+    "wall": 32
+  }
+}

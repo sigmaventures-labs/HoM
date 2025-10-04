@@ -6,6 +6,13 @@ import { Badge } from "../ui/badge";
 import { ScrollArea } from "../ui/scroll-area";
 import { X, Send, User, Bot, TrendingUp, Users, Clock, DollarSign } from "lucide-react";
 import { EphemeralChart, type EphemeralUiSpec, buildDevFallbackSpec } from "./EphemeralChart";
+import {
+  getOrCreateSession,
+  appendMessage as cmAppend,
+  updateMessage as cmUpdate,
+  replaceMessages as cmReplace,
+  type PersistedMessage,
+} from "../../state/ContextManager";
 
 interface ChatMessage {
   id: string;
@@ -34,20 +41,38 @@ export interface ChatInterfaceProps {
 }
 
 export function ChatInterface({ metric, context, initialPrompt, autoSendInitial, onClose }: ChatInterfaceProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: "1",
-      type: "ai",
-      content: `I can help you understand your ${metric} metric. ${
-        context ? `Current value: ${context.value}. Change: ${context.change}%.` : ""
-      } What would you like to know?`,
-      timestamp: new Date(),
-    },
-  ]);
+  const buildWelcome = (): ChatMessage => ({
+    id: "welcome-1",
+    type: "ai",
+    content: `I can help you understand your ${metric} metric. ${
+      context ? `Current value: ${context.value}. Change: ${context.change}%.` : ""
+    } What would you like to know?`,
+    timestamp: new Date(),
+  });
+
+  const toPersisted = (m: ChatMessage): PersistedMessage => ({ id: m.id, type: m.type, content: m.content, timestamp: m.timestamp.toISOString() });
+  const fromPersisted = (p: PersistedMessage): ChatMessage => ({ id: p.id, type: p.type, content: p.content, timestamp: new Date(p.timestamp) });
+
+  const [messages, setMessages] = useState<ChatMessage[]>([buildWelcome()]);
+  const [sessionId, setSessionId] = useState<string>("");
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  // Initialize/load conversation for this metric
+  useEffect(() => {
+    const session = getOrCreateSession(metric);
+    setSessionId(session.sessionId);
+    if (session.messages.length > 0) {
+      setMessages(session.messages.map(fromPersisted));
+    } else {
+      const welcome = buildWelcome();
+      setMessages([welcome]);
+      cmReplace(metric, [toPersisted(welcome)]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [metric]);
 
   const getMetricIcon = () => {
     switch (metric.toLowerCase()) {
@@ -79,6 +104,8 @@ export function ChatInterface({ metric, context, initialPrompt, autoSendInitial,
     setMessages((prev) =>
       prev.map((m) => (m.id === assistantId ? { ...m, content: (m.content || "") + text } : m))
     );
+    // persist stream delta
+    cmUpdate(metric, assistantId, (curr) => ({ ...curr, content: (curr.content || "") + text }));
   };
 
   const tryServerStream = async (
@@ -99,7 +126,7 @@ export function ChatInterface({ metric, context, initialPrompt, autoSendInitial,
             "Content-Type": "application/json",
             Accept: "text/event-stream, text/plain",
           },
-          body: JSON.stringify({ message: prompt, metric, mode: "explanation" }),
+          body: JSON.stringify({ message: prompt, metric, mode: "explanation", sessionId }),
           signal,
         });
 
@@ -195,6 +222,9 @@ export function ChatInterface({ metric, context, initialPrompt, autoSendInitial,
     };
 
     setMessages((prev) => [...prev, userMessage, assistantPlaceholder]);
+    // persist both messages
+    cmAppend(metric, { type: userMessage.type, content: userMessage.content });
+    cmAppend(metric, { type: assistantPlaceholder.type, content: assistantPlaceholder.content, id: assistantPlaceholder.id });
     setInput("");
 
     // Start streaming

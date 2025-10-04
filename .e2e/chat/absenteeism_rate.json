@@ -1,0 +1,104 @@
+{
+  "metric": "absenteeism_rate",
+  "prompt": "Explain why absenteeism moved recently and any seasonal patterns.",
+  "events": [
+    {
+      "delta": "Time range: Context (JSON): {\"metric\": {\"key\": \"absenteeism_rate\", \"name\": \"Absenteeism Rate\", \"description\": \"Share of scheduled time not worked over a period.\", \"orientation\": \"lower\", \"unit\": \"ratio\", \"display_unit\": \"%\", \"period\": \"period\", \"formula_markdown\": \"Absenteeism = (Paid Absence Minutes + Unpaid Absence Minutes) / Scheduled Minutes\", \"numerator\": \"Paid absence minutes from earning codes (vacation, sick, floating holiday, holiday, bereavement, jury duty) + Unpaid absence minutes from Scheduling/Attendance events (post-Jun 2025); pre-Jun 2025: infer no-shows via roster minus worked  [Simulated response — replace with provider]. "
+    },
+    {
+      "ui_spec": {
+        "version": 1,
+        "mode": "explanation",
+        "components": [
+          {
+            "type": "chart",
+            "kind": "line",
+            "title": "Absenteeism Rate Trend",
+            "data": [
+              {
+                "x": "2025-07-13",
+                "y": null
+              },
+              {
+                "x": "2025-07-20",
+                "y": null
+              },
+              {
+                "x": "2025-07-27",
+                "y": null
+              },
+              {
+                "x": "2025-08-03",
+                "y": null
+              },
+              {
+                "x": "2025-08-10",
+                "y": null
+              },
+              {
+                "x": "2025-08-17",
+                "y": null
+              },
+              {
+                "x": "2025-08-24",
+                "y": null
+              },
+              {
+                "x": "2025-08-31",
+                "y": 0.0
+              },
+              {
+                "x": "2025-09-07",
+                "y": 0.01020408163265306
+              },
+              {
+                "x": "2025-09-14",
+                "y": 0.017857142857142856
+              },
+              {
+                "x": "2025-09-21",
+                "y": 0.012755102040816327
+              },
+              {
+                "x": "2025-09-28",
+                "y": 0.015306122448979591
+              }
+            ],
+            "yFormat": "%",
+            "annotations": [
+              {
+                "type": "horizontal_line",
+                "y": 0.03,
+                "label": "Target"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Summary",
+            "rows": [
+              {
+                "label": "Current",
+                "value": "1.8%"
+              },
+              {
+                "label": "Change",
+                "value": "20.0%"
+              },
+              {
+                "label": "Status",
+                "value": "GREEN"
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "metric_key": "absenteeism_rate"
+        }
+      }
+    }
+  ],
+  "timing_ms": {
+    "wall": 19
+  }
+}

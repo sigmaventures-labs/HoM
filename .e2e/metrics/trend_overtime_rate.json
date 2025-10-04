@@ -1,0 +1,110 @@
+[
+  {
+    "metric_key": "overtime_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-07",
+    "period_end": "2025-07-13",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-14",
+    "period_end": "2025-07-20",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-21",
+    "period_end": "2025-07-27",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-28",
+    "period_end": "2025-08-03",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-08-04",
+    "period_end": "2025-08-10",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-08-11",
+    "period_end": "2025-08-17",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-08-18",
+    "period_end": "2025-08-24",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": 0.042735042735042736,
+    "status": null,
+    "period_start": "2025-08-25",
+    "period_end": "2025-08-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": 0.039603960396039604,
+    "status": null,
+    "period_start": "2025-09-01",
+    "period_end": "2025-09-07",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": 0.043478260869565216,
+    "status": null,
+    "period_start": "2025-09-08",
+    "period_end": "2025-09-14",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": 0.033707865168539325,
+    "status": null,
+    "period_start": "2025-09-15",
+    "period_end": "2025-09-21",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": 0.03740648379052369,
+    "status": null,
+    "period_start": "2025-09-22",
+    "period_end": "2025-09-28",
+    "target_value": null,
+    "thresholds": null
+  }
+]

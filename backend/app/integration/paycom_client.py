@@ -8,12 +8,9 @@ from typing import AsyncIterator, Optional, Dict, Any, List
 try:
     # Local library installed via editable path per tasks/paycomPackage_CursorGuide.md
     from paycom_async import PaycomConnector  # type: ignore
-except Exception as exc:  # pragma: no cover - clear guidance when missing
-    raise ImportError(
-        "paycom_async is not installed. See tasks/paycomPackage_CursorGuide.md and run:\n"
-        "  pip install -e /Users/client/Documents/Dev/MaX/libs/paycom_async\n"
-        f"Original import error: {exc}"
-    )
+except Exception:
+    # Soft-degrade: allow HTTP fallback when PAYCOM_BASE_URL is provided
+    PaycomConnector = None  # type: ignore[assignment]
 
 
 ENV_SID = "PAYCOM_SID"
@@ -55,10 +52,14 @@ class PaycomClient:
 
     def __init__(self, config: Optional[PaycomConfig] = None) -> None:
         self._config = config or _read_config_from_env()
-        # PaycomConnector accepts sid, token, and optional base_url for mock/alt endpoints
-        self._connector = PaycomConnector(
-            sid=self._config.sid, token=self._config.token, base_url=self._config.base_url
-        )
+        # Initialize connector if library is available; otherwise rely on HTTP fallback when base_url is set
+        if 'PaycomConnector' in globals() and PaycomConnector is not None:  # type: ignore[name-defined]
+            # PaycomConnector accepts sid, token, and optional base_url for mock/alt endpoints
+            self._connector = PaycomConnector(  # type: ignore[call-arg]
+                sid=self._config.sid, token=self._config.token, base_url=self._config.base_url
+            )
+        else:
+            self._connector = None
         self._httpx: Optional[httpx.AsyncClient] = None
 
     async def __aenter__(self) -> "PaycomClient":
@@ -88,6 +89,8 @@ class PaycomClient:
         """
         # Preferred: library call
         try:
+            if self._connector is None:
+                raise RuntimeError("connector_unavailable")
             return await self._connector.fetch_employees(active_only=active_only)
         except Exception:
             # Fallback to direct HTTP for Replit-based mock
@@ -126,7 +129,9 @@ class PaycomClient:
         """
         # Preferred: library call
         try:
-            async for tc in self._connector.fetch_timecards(
+            if self._connector is None:
+                raise RuntimeError("connector_unavailable")
+            async for tc in self._connector.fetch_timecards(  # type: ignore[union-attr]
                 start_date=start_date, end_date=end_date, active_only=active_only
             ):
                 yield tc

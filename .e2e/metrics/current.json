@@ -1,0 +1,54 @@
+[
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": "yellow",
+    "period_start": "2025-10-04",
+    "period_end": "2025-10-04",
+    "target_value": 15.0,
+    "thresholds": {
+      "red": 8.0,
+      "green": 15.0,
+      "yellow": 12.0
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": 0.017857142857142856,
+    "status": "green",
+    "period_start": "2025-09-28",
+    "period_end": "2025-10-04",
+    "target_value": 0.03,
+    "thresholds": {
+      "red": 0.08,
+      "green": 0.03,
+      "yellow": 0.05
+    }
+  },
+  {
+    "metric_key": "overtime_rate",
+    "value": 0.040697674418604654,
+    "status": "green",
+    "period_start": "2025-09-28",
+    "period_end": "2025-10-04",
+    "target_value": 0.1,
+    "thresholds": {
+      "red": 0.2,
+      "green": 0.08,
+      "yellow": 0.12
+    }
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": "green",
+    "period_start": "2025-09-28",
+    "period_end": "2025-10-04",
+    "target_value": 0.12,
+    "thresholds": {
+      "red": 0.25,
+      "green": 0.12,
+      "yellow": 0.15
+    }
+  }
+]

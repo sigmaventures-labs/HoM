@@ -1,0 +1,110 @@
+[
+  {
+    "metric_key": "absenteeism_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-07",
+    "period_end": "2025-07-13",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-14",
+    "period_end": "2025-07-20",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-21",
+    "period_end": "2025-07-27",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-07-28",
+    "period_end": "2025-08-03",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-08-04",
+    "period_end": "2025-08-10",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-08-11",
+    "period_end": "2025-08-17",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": null,
+    "status": null,
+    "period_start": "2025-08-18",
+    "period_end": "2025-08-24",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-08-25",
+    "period_end": "2025-08-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": 0.01020408163265306,
+    "status": null,
+    "period_start": "2025-09-01",
+    "period_end": "2025-09-07",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": 0.017857142857142856,
+    "status": null,
+    "period_start": "2025-09-08",
+    "period_end": "2025-09-14",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": 0.012755102040816327,
+    "status": null,
+    "period_start": "2025-09-15",
+    "period_end": "2025-09-21",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "value": 0.015306122448979591,
+    "status": null,
+    "period_start": "2025-09-22",
+    "period_end": "2025-09-28",
+    "target_value": null,
+    "thresholds": null
+  }
+]

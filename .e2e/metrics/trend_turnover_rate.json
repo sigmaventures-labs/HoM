@@ -1,0 +1,114 @@
+[
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2024-10-01",
+    "period_end": "2024-10-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2024-11-01",
+    "period_end": "2024-11-30",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2024-12-01",
+    "period_end": "2024-12-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-01-01",
+    "period_end": "2025-01-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-02-01",
+    "period_end": "2025-02-28",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-03-01",
+    "period_end": "2025-03-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-04-01",
+    "period_end": "2025-04-30",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-05-01",
+    "period_end": "2025-05-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-06-01",
+    "period_end": "2025-06-30",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": null,
+    "period_start": "2025-07-01",
+    "period_end": "2025-07-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.15816326530612246,
+    "status": null,
+    "period_start": "2025-08-01",
+    "period_end": "2025-08-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "turnover_rate",
+    "value": 0.0,
+    "status": "green",
+    "period_start": "2025-09-01",
+    "period_end": "2025-09-30",
+    "target_value": 0.12,
+    "thresholds": {
+      "red": 0.25,
+      "green": 0.12,
+      "yellow": 0.15
+    }
+  }
+]

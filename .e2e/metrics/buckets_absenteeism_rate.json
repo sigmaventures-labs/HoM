@@ -1,0 +1,182 @@
+[
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-07-07",
+    "bucket_end": "2025-07-13",
+    "value": null,
+    "numerator": 0.0,
+    "denominator": 0.0,
+    "status": "na",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-07-14",
+    "bucket_end": "2025-07-20",
+    "value": null,
+    "numerator": 0.0,
+    "denominator": 0.0,
+    "status": "na",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-07-21",
+    "bucket_end": "2025-07-27",
+    "value": null,
+    "numerator": 0.0,
+    "denominator": 0.0,
+    "status": "na",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-07-28",
+    "bucket_end": "2025-08-03",
+    "value": null,
+    "numerator": 0.0,
+    "denominator": 0.0,
+    "status": "na",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-08-04",
+    "bucket_end": "2025-08-10",
+    "value": null,
+    "numerator": 0.0,
+    "denominator": 0.0,
+    "status": "na",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-08-11",
+    "bucket_end": "2025-08-17",
+    "value": null,
+    "numerator": 0.0,
+    "denominator": 0.0,
+    "status": "na",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-08-18",
+    "bucket_end": "2025-08-24",
+    "value": null,
+    "numerator": 0.0,
+    "denominator": 0.0,
+    "status": "na",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-08-25",
+    "bucket_end": "2025-08-31",
+    "value": 0.0,
+    "numerator": 0.0,
+    "denominator": 6720.0,
+    "status": "ok",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-09-01",
+    "bucket_end": "2025-09-07",
+    "value": 0.01020408163265306,
+    "numerator": 480.0,
+    "denominator": 47040.0,
+    "status": "ok",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-09-08",
+    "bucket_end": "2025-09-14",
+    "value": 0.017857142857142856,
+    "numerator": 840.0,
+    "denominator": 47040.0,
+    "status": "ok",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-09-15",
+    "bucket_end": "2025-09-21",
+    "value": 0.012755102040816327,
+    "numerator": 600.0,
+    "denominator": 47040.0,
+    "status": "ok",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  },
+  {
+    "metric_key": "absenteeism_rate",
+    "bucket_start": "2025-09-22",
+    "bucket_end": "2025-09-28",
+    "value": 0.015306122448979591,
+    "numerator": 720.0,
+    "denominator": 47040.0,
+    "status": "ok",
+    "meta": {
+      "days_expected": 7,
+      "days_with_data": 7,
+      "coverage_pct": 1.0,
+      "notes": "last full period"
+    }
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "metric_key": "headcount",
+    "value": 4.0,
+    "status": null,
+    "period_start": "2025-07-13",
+    "period_end": "2025-07-13",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 4.0,
+    "status": null,
+    "period_start": "2025-07-20",
+    "period_end": "2025-07-20",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 4.0,
+    "status": null,
+    "period_start": "2025-07-27",
+    "period_end": "2025-07-27",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 14.0,
+    "status": null,
+    "period_start": "2025-08-03",
+    "period_end": "2025-08-03",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 14.0,
+    "status": null,
+    "period_start": "2025-08-10",
+    "period_end": "2025-08-10",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": null,
+    "period_start": "2025-08-17",
+    "period_end": "2025-08-17",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": null,
+    "period_start": "2025-08-24",
+    "period_end": "2025-08-24",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": null,
+    "period_start": "2025-08-31",
+    "period_end": "2025-08-31",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": null,
+    "period_start": "2025-09-07",
+    "period_end": "2025-09-07",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": null,
+    "period_start": "2025-09-14",
+    "period_end": "2025-09-14",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": null,
+    "period_start": "2025-09-21",
+    "period_end": "2025-09-21",
+    "target_value": null,
+    "thresholds": null
+  },
+  {
+    "metric_key": "headcount",
+    "value": 12.0,
+    "status": null,
+    "period_start": "2025-09-28",
+    "period_end": "2025-09-28",
+    "target_value": null,
+    "thresholds": null
+  }
+]
