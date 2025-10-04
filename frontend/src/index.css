@@ -48,8 +48,11 @@
     --ring: 263 70% 50%;
   }
 
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground; }
+  * { border-color: hsl(var(--border)); }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
 }
 
 @layer components {
